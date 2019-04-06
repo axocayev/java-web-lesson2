@@ -17,22 +17,22 @@ public class Test {
 
     public static void main(String[] args) {
                 AutoFileOps afo=new AutoFileOps();
-     /*   Automobile a=new Automobile();
-        a.setId("3");
+   Automobile a=new Automobile();
+        a.setId("4");
         a.setMarka("Toyota");
-       a.setModel("Prado");
-       a.setType("Jeep");
+       a.setModel("Camry");
+       a.setType("Sedan");
        a.setYear("2007");
-       a.setMotor("2700");
+       a.setMotor("2400");
        a.setColor("White");
        a.setTransmission("Automatic");
        a.setPrice("1/45AZN, 7/300AZN, 30/700AZN");
       
 
-        System.out.println(afo.addAutomobile(a));*/
-       
+        System.out.println(afo.addAutomobile(a));
+       /*
     for(Automobile a:afo.getAllAuto()){
            System.out.println(a);
-       }
+       }*/
     }
 }
