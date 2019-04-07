@@ -4,6 +4,8 @@
     Author     : anarx
 --%>
 
+<%@page import="az.rentcar.model.Marka"%>
+<%@page import="az.rentcar.dao.MarkaDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -212,11 +214,13 @@
 
                                 <select id="combobox" name="marka">
                                     <option value="">Select one...</option>
-                                    <option value="Lada">Lada</option>
-                                    <option value="BMW">BMW</option>
-                                    <option value="Mercedes">Mercedes-Benz</option>
-                                    <option value="Toyota">Toyota</option>
-
+                                    <%MarkaDAO mdo = new MarkaDAO();
+                                        for (Marka m : mdo.getAllMarka()) {
+                                    %>
+                                    
+                                    <option value="<%=m.getId()%>"><%=m.getName()%></option>
+                                 
+                                    <%}%>
                                 </select>
                             </div>
                         </div>
@@ -257,20 +261,20 @@
                             <input type="text" class="form-control" id="color" 
                                    placeholder="Enter Color" name="color">
                         </div>
-                        
-                         <div class="form-group">
+
+                        <div class="form-group">
                             <label for="transmission">Transmission</label>
                             <select class="form-control" id="transmission" name="transmission">
                                 <option value="Automatic">Automatic</option>
                                 <option value="Manual">Manual</option>
                             </select>
                         </div>
-                     <div class="form-group">
+                        <div class="form-group">
                             <label for="price">Price</label>
                             <input type="text" class="form-control" id="price" 
                                    placeholder="Enter Price" name="price">
                         </div>
-                        
+
                         <button type="submit" class="btn btn-default">Add</button>
                     </form>
                 </div>
