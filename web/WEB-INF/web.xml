@@ -9,6 +9,11 @@
         <servlet-class>az.itedu.servlet.Book</servlet-class>
     </servlet>
     
+    <servlet>
+        <servlet-name>rentcar</servlet-name>
+        <servlet-class>az.rentcar.servlet.RentCar</servlet-class>
+    </servlet>
+    
     
     <servlet-mapping>
         <servlet-name>student</servlet-name>
@@ -18,4 +23,15 @@
         <servlet-name>book</servlet-name>
         <url-pattern>/book</url-pattern>
     </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>rentcar</servlet-name>
+        <url-pattern>/rentcar</url-pattern>
+        <url-pattern>/rentcar/*</url-pattern>
+        <url-pattern>/rentcar/bycar/*</url-pattern>
+        <url-pattern>/rentcar/update/*</url-pattern>
+        <url-pattern>/rentcar/delete/*</url-pattern>
+
+    </servlet-mapping>
+    
 </web-app>
