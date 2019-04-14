@@ -14,15 +14,14 @@
     </div>
     <ul class="nav navbar-nav">
       <li class="active"><a href="#">Home</a></li>
-      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Modellər <span class="caret"></span></a>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Markalar <span class="caret"></span></a>
         <ul class="dropdown-menu">
             <c:forEach var="marka" items="${carmarks}">
-                <li><a href="<c:out value="${marka.getId()}"></c:out>"><c:out value="${marka.getName()}"></c:out></a></li>
+                <li><a href='<c:out value="${pageContext.request.contextPath}"/>/rentcar/<c:out value="${marka.getId()}"></c:out>'><c:out value="${marka.getName()}"></c:out></a></li>
             </c:forEach>
         </ul>
       </li>
-      <li><a href="#">Page 2</a></li>
-      <li><a href="#">Page 3</a></li>
+  
     </ul>
   </div>
 </nav>

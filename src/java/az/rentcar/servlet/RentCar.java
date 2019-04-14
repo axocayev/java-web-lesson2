@@ -46,9 +46,19 @@ public class RentCar extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        MarkaDAO mdao = new MarkaDAO();
-
+     
+        System.out.println("getScheme()" + request.getScheme());
+        System.out.println("getServerName()" + request.getServerName());
+        System.out.println("getServerPort()" + request.getServerPort());
+        System.out.println("getContextPath()" + request.getContextPath());
+        System.out.println("getServletPath()" + request.getServletPath());
+        System.out.println("getQueryString()" + request.getQueryString());
+        System.out.println("getPathInfo()" + request.getPathInfo());
+        System.out.println("getRequestURI()" + request.getRequestURI());
+           MarkaDAO mdao = new MarkaDAO();
+        
         if (getCarsByMarkId(request.getPathInfo()) != null ) {
+            System.out.println("1");
             RequestDispatcher rd = request.getRequestDispatcher("/carrentviews/carlist.jsp");
             request.setAttribute("carmarks", mdao.getAllMarka());
             request.setAttribute("autoList",
@@ -56,13 +66,15 @@ public class RentCar extends HttpServlet {
                             request.getPathInfo().replace("/", ""))));
 
             rd.forward(request, response);
-        } else if (request.getPathInfo().equals("/all")) {
+        } else if (request.getPathInfo().equals("/all") || request.getPathInfo()==null) {
+            System.out.println("2");
             RequestDispatcher rd = request.getRequestDispatcher("/carrentviews/carlist.jsp");
             request.setAttribute("carmarks", mdao.getAllMarka());
             request.setAttribute("autoList", new RentCarDao().getAllCars());
 
             rd.forward(request, response);
         } else {
+            System.out.println("3");
             RequestDispatcher rd = request.getRequestDispatcher("/carrentviews/carlist.jsp");
             request.setAttribute("carmarks", mdao.getAllMarka());
             request.setAttribute("autoList", new RentCarDao().getAllCars());
@@ -80,14 +92,7 @@ public class RentCar extends HttpServlet {
             out.println("<br>getPathInfo()" + request.getPathInfo());
             out.println("<br>getRequestURI()" + request.getRequestURI());
         }*/
-        System.out.println("getScheme()" + request.getScheme());
-        System.out.println("getServerName()" + request.getServerName());
-        System.out.println("getServerPort()" + request.getServerPort());
-        System.out.println("getContextPath()" + request.getContextPath());
-        System.out.println("getServletPath()" + request.getServletPath());
-        System.out.println("getQueryString()" + request.getQueryString());
-        System.out.println("getPathInfo()" + request.getPathInfo());
-        System.out.println("getRequestURI()" + request.getRequestURI());
+       
 
     }
 
@@ -104,12 +109,16 @@ public class RentCar extends HttpServlet {
 
     private List<az.rentcar.model.RentCar> getCarsByMarkId(String marka_id) {
         List<az.rentcar.model.RentCar> list = null;
+        try{
         list = new RentCarDao().getCarsByMarka(
                 Integer.parseInt(marka_id.replace("/", "")));
         if (list.size() == 0) {
             return null;
         } else {
             return list;
+        }
+        }catch(NumberFormatException e){
+            return null;
         }
     }
 

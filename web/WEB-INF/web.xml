@@ -15,6 +15,12 @@
     </servlet>
     
     
+        <servlet>
+        <servlet-name>order</servlet-name>
+        <servlet-class>az.rentcar.servlet.OrderServlet</servlet-class>
+    </servlet>
+    
+    
     <servlet-mapping>
         <servlet-name>student</servlet-name>
         <url-pattern>/student</url-pattern>
@@ -31,7 +37,14 @@
         <url-pattern>/rentcar/bycar/*</url-pattern>
         <url-pattern>/rentcar/update/*</url-pattern>
         <url-pattern>/rentcar/delete/*</url-pattern>
-
+    </servlet-mapping>
+    
+    
+    
+    
+    <servlet-mapping>
+        <servlet-name>order</servlet-name>
+        <url-pattern>/order/*</url-pattern>
     </servlet-mapping>
     
 </web-app>

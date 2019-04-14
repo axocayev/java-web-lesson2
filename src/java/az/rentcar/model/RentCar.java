@@ -10,8 +10,9 @@ package az.rentcar.model;
  * @author anarx
  */
 public class RentCar {
-
+     
     private int id;
+   
     private String type,
             year,
             motor,

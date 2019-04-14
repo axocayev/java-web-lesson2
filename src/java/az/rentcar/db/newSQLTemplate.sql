@@ -69,3 +69,21 @@ create sequence rent_car_seq start with 1  increment by 1 ;
 select * from model_car where id=7;
 select * from model_car where marka_id=7;
 
+
+
+
+create table order_car(
+id number primary key,
+car_id number,
+name varchar2(15),
+sname varchar2(25),
+email varchar2(255),
+phone varchar2(25),
+status number default 0,
+cdate timestamp default sysdate,
+check (status =0 or status=1),
+FOREIGN key(car_id) REFERENCES rent_car(id)
+);
+
+
+create sequence order_car_seq start with 1 increment by 1;

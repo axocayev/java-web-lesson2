@@ -35,6 +35,7 @@
                         <th>Color</th>
                         <th>Transmission</th>
                         <th>Price</th>
+                        <th>Order</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -48,6 +49,10 @@
                         <td><c:out value="${a.getColor()}"></c:out></td>
                         <td><c:out value="${a.getTransmission()}"></c:out></td>
                         <td><c:out value="${a.getPrice()}"></c:out></td>
+                        <td><a href='<c:out value="${pageContext.request.contextPath}"/>/order/<c:out value="${a.getId()}"></c:out>'
+                               class ="btn btn-primary">
+                        
+                        Order</a> </td>
                     </tr>
                     </c:forEach>
                 </tbody>
